@@ -24,18 +24,18 @@
     </div>
 
     <!-- login form -->
-    <form action="">
+    <form action="" onsubmit="handleLogin(event)">
       <div class="inputs">
         <div class="input">
-          <input type="text" placeholder="Phone Number" v-model="email" class="text-input">
+          <input type="text" placeholder="Phone Number" v-model="email" class="text-input" id="phoneNum">
           <i class="fa-solid fa-user icon"></i>
         </div>
         <div class="input">
-          <input type="text" placeholder="Password" v-model="email" class="text-input">
+          <input type="text" placeholder="Password" v-model="email" class="text-input" id="password">
           <i class="fa-solid fa-lock icon"></i>
         </div>
         <div class="input btn">
-          <input type="button" value="Login">
+          <input type="submit" value="Login" onclick="handleLogin()">
         </div>
       </div>
       
@@ -44,3 +44,22 @@
 </div>
 </body>
 </html>
+
+<script>
+  function handleLogin(event){
+    event.preventDefault();
+    var phoneNumber = document.getElementById('phoneNum').value;
+    var password = document.getElementById('password').value;
+  
+
+    // console.log('Phone Number:', phoneNumber);
+    // console.log('Password:', password);
+    
+
+    if (phoneNumber !== '' && password !== '') {
+      window.location.href = 'pin.html'; // Change to the desired URL
+    } else {
+      alert('Please enter valid credentials.');
+    }
+  }
+</script>
